@@ -1,0 +1,10 @@
+mysqlclient
+sqlalchemy
+aiomysql
+uvicorn
+fastapi
+email-validator
+spotipy
+python-dotenv
+pandas
+line-bot-sdk

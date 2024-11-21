@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  db: 
+    container_name: mysql
+    image: mysql:5.7
+    platform: linux/amd64
+    restart: always
+    tty: true
+    environment:
+      MYSQL_DATABASE: madanomu
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports: 
+      - 3306:3306
+    command: --port 3306
+    volumes: 
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/log/mysql:/var/log/mysql
+
+  server:
+    links:
+      - db
+    build: ./server/
+    tty: true
+    container_name: fastapi
+    working_dir: /usr/src/server
+    ports:
+      - 8080:8080
+    volumes:
+      - ./server/api/:/usr/src/server
+
+  client:
+    build: ./client/
+    container_name: react
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server/:/var/www/server/
+      - ./client/:/var/www/client/
+    tty: true
+    stdin_open: true
