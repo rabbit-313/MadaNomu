@@ -1,83 +1,61 @@
-// Home.js
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
 
-function Home() {
-  const [url, setUrl] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-
-  // ページロード時にキャッシュされたURLを取得
-  useEffect(() => {
-    const cachedUrl = localStorage.getItem('playlistUrl');
-    if (cachedUrl) {
-      setUrl(cachedUrl);
-    }
-  }, []);
+const App = () => {
+  const [username, setUserName] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // エラーメッセージをリセット
-
-    if (url) {
-      try {
-        // URLをローカルストレージに保存
-        localStorage.setItem('playlistUrl', url);
-
-        const response = await fetch('http://localhost:8080/post_url', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ url }), // 入力されたURLを送信
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log('サーバーからのレスポンス:', data);
-          navigate('/playlist', { state: { url, response: data } });
-        } else {
-          setError('URL送信に失敗しました。もう一度お試しください。');
-        }
-      } catch (error) {
-        console.error('エラーが発生しました', error);
-        setError('エラーが発生しました。サーバーを確認してください。');
+    try {
+      const response = await fetch("http://localhost:8080/post_user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username }),
+      });
+      if (response.ok) {
+        alert("Name submitted successfully!");
+        const data = await response.json();
+        console.log('サーバーからのレスポンス:', data);
+        setUserName("");
+      } else {
+        alert("Failed to submit the name.");
       }
-    } else {
-      setError('URLを入力してください');
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while submitting the name.");
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
-          プレイリスト URL を入力
-        </h2>
-        <p className="text-gray-600 text-center mb-6">
-          Spotify プレイリストの URL を入力してください
-        </p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full"
+      >
+        <h1 className="text-2xl font-bold text-center mb-4">あなたの酔っぱらい度合いは？</h1>
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+            名前を入力してね:
+          </label>
           <input
             type="text"
-            placeholder="https://spotify.com/playlist/..."
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            id="name"
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="なまえ"
           />
-          <button
-            type="submit"
-            className="bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition duration-200"
-          >
-            送信
-          </button>
-        </form>
-        {error && (
-          <div className="mt-4 text-red-500 text-center font-semibold">{error}</div>
-        )}
-      </div>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+        >
+          Start
+        </button>
+      </form>
     </div>
   );
-}
+};
 
-export default Home;
+export default App;

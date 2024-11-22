@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <div className="bg-gray-100 min-h-screen flex flex-col">
         <header className="bg-blue-600 text-white p-4 shadow-md">
-          <h1 className="text-xl font-bold text-center">VibePlague</h1>
+          <h1 className="text-xl font-bold text-center">MadaNomu</h1>
         </header>
         <main className="flex-1 p-4">
           <Routes>
