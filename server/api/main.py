@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware  # CORSを回避するために必要
-from routers import madanomu
+from routers import user
 
 app = FastAPI()
 
@@ -13,4 +13,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(madanomu.router)
+app.include_router(user.router)

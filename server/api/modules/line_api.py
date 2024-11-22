@@ -33,4 +33,6 @@ def push_message(msg):
             "message": f"Failed to send message: {e.error.message}"
         }
 
-
+if __name__ == "__main__":
+    msg = "Hello, world!"
+    print(push_message(msg))
