@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware  # CORSを回避するために必要
-from routers import user
+from routers import user, question
 
 app = FastAPI()
 
@@ -14,3 +14,4 @@ app.add_middleware(
 )
 
 app.include_router(user.router)
+app.include_router(question.router)
