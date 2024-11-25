@@ -38,7 +38,7 @@ const App = () => {
   };
 
   const handleNavigate = () => {
-    navigate('/question');
+    navigate('/add_question');
   };
 
   return (

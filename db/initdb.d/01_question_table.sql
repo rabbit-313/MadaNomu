@@ -1,6 +1,7 @@
 CREATE TABLE question (
     id SERIAL PRIMARY KEY,
     question_name VARCHAR(256) NOT NULL,
+    question VARCHAR(256) NOT NULL,
     level INTEGER,
     answer INTEGER NOT NULL,
     choice_1 VARCHAR(256) NOT NULL,

@@ -1,9 +1,10 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 class Question(BaseModel):
     question_name: str
+    question: str
     level: Optional[int] = None
     answer: int
     choice_1: str
