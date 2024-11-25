@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home';
+import Question from './components/question';
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
         <main className="flex-1 p-4">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/question" element={<Question />} />
           </Routes>
         </main>
         <footer className="bg-gray-800 text-white p-4 text-center">
