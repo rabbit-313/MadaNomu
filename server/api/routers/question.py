@@ -22,9 +22,9 @@ async def post_question(request: question_schema.Question, db: Session = Depends
 
     return db_question
 
-# @router.get("/get_question/{user_id}", response_model=user_schema.UserResponse)
-# async def get_users(user_id: int, db: Session = Depends(get_db)):
-#     db_user = db.query(UserTable).filter(UserTable.id == user_id).first()
-#     if db_user is None:
-#         raise HTTPException(status_code=status.HTTP_404_NOTFOUND, detail="User not found")
-#     return db_user
+@router.get("/get_question/{id}", response_model=question_schema.QuestionResponse)
+async def get_users(id: int, db: Session = Depends(get_db)):
+    db_question = db.query(QuestionTable).filter(QuestionTable.id == id).first()
+    if db_question is None:
+        raise HTTPException(status_code=status.HTTP_404_NOTFOUND, detail="Question not found")
+    return db_question

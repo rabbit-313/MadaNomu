@@ -20,17 +20,22 @@ def line_api():
     except Exception as e:
         return {"status": 500, "message": f"Failed to initialize LineBotApi: {str(e)}"}  # 予期しないエラー
 
-def push_message(msg):
+def push_message(msg: str) -> dict:
     load_dotenv()
     LINE_GROUP_ID = os.getenv('LINE_GROUP_ID')
     line_bot_api = line_api()
     try:
         line_bot_api.push_message(LINE_GROUP_ID, TextSendMessage(text=msg))
-        return {"status": 200, "message": "Message sent successfully!"}  # 成功時のステータス
+        return {
+            "status": 200, 
+            "message": "Message sent successfully!", 
+            "linemessage": msg
+        }  # 成功時のステータス
     except LineBotApiError as e:
         return {
             "status": e.status_code,
-            "message": f"Failed to send message: {e.error.message}"
+            "message": f"Failed to send message: {e.error.message}",
+            "linemessage": msg
         }
 
 if __name__ == "__main__":
