@@ -13,7 +13,7 @@ export default function App() {
         <main className="flex-1 p-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/question" element={<Question />} />
+            <Route path="/add_question" element={<Question />} />
           </Routes>
         </main>
         <footer className="bg-gray-800 text-white p-4 text-center">

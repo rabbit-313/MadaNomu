@@ -5,6 +5,7 @@ const PostQuestion = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     question_name: "",
+    question: "",
     level: "",
     answer: "",
     choice_1: "",
@@ -31,6 +32,7 @@ const PostQuestion = () => {
 
     // 必須フィールドのバリデーション
     if (!formData.question_name) newErrors.question_name = "Question name is required.";
+    if (!formData.question) newErrors.question = "Question is required.";
     if (!formData.answer) newErrors.answer = "Answer is required.";
     if (!formData.level) newErrors.level = "Level is required.";
     if (!formData.choice_1) newErrors.choice_1 = "Choice 1 is required.";
@@ -61,6 +63,7 @@ const PostQuestion = () => {
       alert("Question posted successfully!");
       setFormData({
         question_name: "",
+        question: "",
         level: "",
         answer: "",
         choice_1: "",
@@ -109,6 +112,26 @@ const PostQuestion = () => {
             />
             {errors.question_name && (
               <p className="text-red-500 text-sm">{errors.question_name}</p>
+            )}
+          </div>
+          <div>
+            <label
+              htmlFor="question"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Question:
+            </label>
+            <input
+              type="text"
+              id="question"
+              name="question"
+              value={formData.question}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter the question"
+            />
+            {errors.question && (
+              <p className="text-red-500 text-sm">{errors.question}</p>
             )}
           </div>
           <div>

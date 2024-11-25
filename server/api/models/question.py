@@ -8,6 +8,7 @@ class QuestionTable(Base):
     __tablename__ = 'question'
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     question_name = Column(String(256), unique=False, index=False, nullable=False)
+    question = Column(String(256), unique=False, index=False, nullable=False)
     level = Column(Integer, unique=False, index=False, nullable=True)
     answer = Column(Integer, unique=False, index=False, nullable=False)
     choice_1 = Column(String(256), unique=False, index=False, nullable=False)
