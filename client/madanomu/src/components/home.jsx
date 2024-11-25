@@ -28,6 +28,8 @@ const App = () => {
       if (response.ok) {
         const data = await response.json();
         setUserName("");
+        alert("Success to submit the name.");
+        navigate('/question_display/1');
       } else {
         alert("Failed to submit the name.");
       }
@@ -37,7 +39,7 @@ const App = () => {
     }
   };
 
-  const handleNavigate = () => {
+  const handleNavigateAddQuestion = () => {
     navigate('/add_question');
   };
 
@@ -45,7 +47,7 @@ const App = () => {
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <button
         type="button"
-        onClick={handleNavigate}
+        onClick={handleNavigateAddQuestion}
         className="absolute top-20 right-4 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-200"
       >
         Go to Question Page
