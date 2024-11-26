@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from "./usercontext";
 
 const App = () => {
   const [username, setUserName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { setUserId } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +29,8 @@ const App = () => {
 
       if (response.ok) {
         const data = await response.json();
+        setUserId(data.id);
+        console.log(data.id)
         setUserName("");
         alert("Success to submit the name.");
         navigate('/question_display/1');
@@ -53,10 +57,10 @@ const App = () => {
         Go to Question Page
       </button>
       <div className="text-center mb-6">
-        <h1 className="text-4xl font-extrabold text-blue-600 mb-2">まだ飲む？？</h1>
-        <p className="text-lg text-gray-700">
+        <h1 className="text-4xl font-extrabold text-blue-600 mb-2">数学の問題を解いてお酒の失敗を防ごう！</h1>
+        {/* <p className="text-lg text-gray-700">
           数学の問題を解いてお酒の失敗を防ごう！
-        </p>
+        </p> */}
       </div>
       <form
         onSubmit={handleSubmit}

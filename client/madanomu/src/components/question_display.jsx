@@ -47,7 +47,7 @@ const QuestionDisplay = ({ id }) => {
     if (choice === questionData.answer) {
       setCorrect(correct + 1); // 正解数をインクリメント
     }
-    console.log(correct);
+    // console.log(correct);
     const nextId = id + 1; // 次の問題 ID を計算
     if (nextId > 10) {
       navigate("/results"); // 最後の問題の後にトップページに遷移

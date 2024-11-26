@@ -1,8 +1,10 @@
 import React from "react";
 import { useCorrect } from "./correct"; // Context を利用
+import { useUserContext } from "./usercontext";
 
 const Results = () => {
   const { correct } = useCorrect(); // 正解数を取得
+  const { userId } = useUserContext(); // IDを取得
 
   // メッセージを正解数に応じて動的に変更
   const getMessage = () => {
@@ -16,7 +18,7 @@ const Results = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ correct }),
+        body: JSON.stringify({"user_id": userId ,"correct":correct }),
       });
 
       if (response.ok) {
