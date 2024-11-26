@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCorrect } from "./correct"; // Context を利用
 
 const QuestionDisplay = ({ id }) => {
@@ -57,9 +57,14 @@ const QuestionDisplay = ({ id }) => {
   };
 
   return (
-    <div className="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">{questionData.question_name}</h2>
-      <p className="text-gray-700 mb-4">{questionData.question}</p>
+    <div
+      className="p-6 max-w-lg w-full bg-white rounded-lg shadow-md flex flex-col justify-between"
+      style={{ minHeight: "400px" }} // 高さを固定
+    >
+      <div>
+        <h2 className="text-2xl font-bold mb-4">{questionData.question_name}</h2>
+        <p className="text-gray-700 mb-4">{questionData.question}</p>
+      </div>
 
       <ul className="space-y-2">
         <li
@@ -100,7 +105,11 @@ const QuestionDisplay = ({ id }) => {
 
 const QuestionPage = () => {
   const { id } = useParams(); // URLからidを取得
-  return <QuestionDisplay id={parseInt(id, 10)} />;
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <QuestionDisplay id={parseInt(id, 10)} />
+    </div>
+  );
 };
 
 export default QuestionPage;

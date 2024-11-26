@@ -56,7 +56,7 @@ const App = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full"
       >
-        <h1 className="text-2xl font-bold text-center mb-4">あなたの酔っぱらい度合いは？</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">酔っているのかを測るよ！</h1>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
             名前を入力してね:
