@@ -33,7 +33,7 @@ const Results = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="p-6 max-w-lg w-full bg-white rounded-lg shadow-md text-center">
-        <h1 className="text-2xl font-bold mb-4">Result</h1>
+        <h1 className="text-2xl font-bold mb-4">結果発表！</h1>
         <p className="text-lg text-gray-700 mb-4">あなたの正解数は: {correct}/10 です</p>
         <p className="text-md text-gray-600 italic">{getMessage()}</p>
         <div className="mt-6 space-x-4">
