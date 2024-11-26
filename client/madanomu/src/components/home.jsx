@@ -44,7 +44,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <button
         type="button"
         onClick={handleNavigateAddQuestion}
@@ -52,11 +52,16 @@ const App = () => {
       >
         Go to Question Page
       </button>
+      <div className="text-center mb-6">
+        <h1 className="text-4xl font-extrabold text-blue-600 mb-2">まだ飲む？？</h1>
+        <p className="text-lg text-gray-700">
+          数学の問題を解いてお酒の失敗を防ごう！
+        </p>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full"
       >
-        <h1 className="text-2xl font-bold text-center mb-4">あなたの酔っぱらい度合いは？</h1>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
             名前を入力してね:
@@ -73,7 +78,7 @@ const App = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+          className="w-full bg-blue-500 text-white py-2 mb-4 rounded-lg hover:bg-blue-600 transition duration-200"
         >
           Start !
         </button>
