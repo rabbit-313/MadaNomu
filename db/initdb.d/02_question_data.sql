@@ -19,4 +19,4 @@ INSERT INTO question (
 
     -- その他
     ('その他1', '次のアルファベットの中で「母音」はどれ？A, B, C, D', 5, 1, 'A', 'B', 'C', 'D', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('その他2', '5人の子どもがいて、全員に同じ個数のキャンディを配るために最低何個必要？（1人に2個ずつ配る場合）', 5, 4, '10', '8', '12', '10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    ('その他2', '5人の子どもがいて、全員に同じ個数のキャンディを配るために最低何個必要？（1人に2個ずつ配る場合）', 5, 1, '10', '8', '12', '5', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PostQuestion = () => {
+const AddQuestion = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     question_name: "",
@@ -248,4 +248,4 @@ const PostQuestion = () => {
   );
 };
 
-export default PostQuestion;
+export default AddQuestion;

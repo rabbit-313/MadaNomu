@@ -8,3 +8,9 @@ class LineBotMessage(BaseModel):
 class LineBotMessageResponse(LineBotMessage):
     status: int
     message: str
+
+class MakeMessage(BaseModel):
+    correct: int
+
+class MakeMessageResponse(BaseModel):
+    linemessage: Optional[str] = None
