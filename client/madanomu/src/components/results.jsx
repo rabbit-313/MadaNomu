@@ -32,22 +32,22 @@ const Results = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-gray-100">
-      <div className="p-8 max-w-lg w-full bg-gray-900 text-gray-100 rounded-lg shadow-2xl text-center">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-800">
+      <div className="p-8 max-w-lg w-full bg-white text-gray-800 rounded-lg shadow-xl text-center">
         <h1 className="text-3xl font-extrabold text-orange-500 mb-6">結果発表！</h1>
         <p className="text-xl font-semibold mb-4">
           あなたの正解数は: <span className="text-orange-500">{correct}/10</span> です
         </p>
-        <p className="text-md text-gray-400 italic mb-6">{getMessage()}</p>
+        <p className="text-md text-gray-600 italic mb-6">{getMessage()}</p>
         <div className="mt-8 flex justify-center space-x-4">
           <button
-            className="px-6 py-3 bg-orange-500 text-black font-bold rounded-lg hover:bg-orange-600 transition duration-300"
+            className="px-6 py-3 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition duration-300"
             onClick={() => (window.location.href = "/")}
           >
             ホームに戻る
           </button>
           <button
-            className="px-6 py-3 bg-green-500 text-black font-bold rounded-lg hover:bg-green-600 transition duration-300"
+            className="px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300"
             onClick={postCorrectScore}
           >
             Lineグループに通知する

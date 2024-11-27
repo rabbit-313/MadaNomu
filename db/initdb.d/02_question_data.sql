@@ -10,13 +10,13 @@ INSERT INTO question (
     ('数列問題2', '2, 4, 8, 16 の次の数字は？', 2, 1, '32', '64', '20', '24', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
     -- 文章問題
-    ('文章問題1', 'リンゴが5個あり、3個食べました。残りはいくつ？', 3, 1, '2', '3', '5', '0', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('文章問題1', 'リンゴが5個あります。みかんを3個食べました。りんごははいくつある？', 3, 3, '2', '3', '5', '0', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     ('文章問題2', '太郎さんが10kmの道を30分で走りました。平均速度は何km/h？', 3, 4, '10', '15', '5', '20', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
     -- 記憶力問題
     ('記憶力問題1', '3, 7, 9, 2, 8。この中で3番目の数字は？', 4, 1, '7', '9', '8', '2', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('記憶力問題2', '以下の順番を覚えてください：5, 10, 15, 20。最後の数字は？', 4, 4, '5', '15', '10', '20', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('記憶力問題2', '今何問目？', 4, 3, '3', '6', '8', '9', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 
     -- その他
-    ('その他1', '次のアルファベットの中で「母音」はどれ？A, B, C, D', 5, 1, 'A', 'B', 'C', 'D', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-    ('その他2', '5人の子どもがいて、全員に同じ個数のキャンディを配るために最低何個必要？（1人に2個ずつ配る場合）', 5, 1, '10', '8', '12', '5', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    ('その他1', '次のアルファベットの中で「子音」ではなく「母音」はどれ？ A, B, C, D', 5, 1, 'A', 'B', 'C', 'D', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('その他2', '5人の子どもと2人の大人がいます。子どもに同じ個数のキャンディを配るために最低何個必要？（1人に2個ずつ配る場合）', 5, 1, '10', '8', '12', '5', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
