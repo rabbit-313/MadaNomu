@@ -39,5 +39,5 @@ def push_message(msg: str) -> dict:
         }
 
 if __name__ == "__main__":
-    msg = "Hello, world!"
+    msg = "Test"
     print(push_message(msg))

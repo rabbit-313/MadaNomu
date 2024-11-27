@@ -11,11 +11,15 @@ export default function App() {
     <UserProvider>
       <CorrectProvider>
         <Router>
-          <div className="bg-gray-100 min-h-screen flex flex-col">
-            <header className="bg-blue-600 text-white p-4 shadow-md">
-              <h1 className="text-xl font-bold text-center">まだ飲める？？</h1>
+          <div className="bg-black text-gray-100 min-h-screen flex flex-col">
+            <header className="bg-orange-500 shadow-lg">
+              <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+                <h1 className="text-3xl font-bold tracking-wider">
+                  まだ飲む？？ 
+                </h1>
+              </div>
             </header>
-            <main className="flex-1 p-4">
+            <main className="flex-1 container mx-auto px-4 py-6">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/add_question" element={<AddQuestion />} />
@@ -23,8 +27,10 @@ export default function App() {
                 <Route path="/results" element={<Results />} />
               </Routes>
             </main>
-            <footer className="bg-gray-800 text-white p-4 text-center">
-              <p>© 2024 MadaNomeru?</p>
+            <footer className="bg-gray-900 text-orange-500 py-4">
+              <div className="container mx-auto text-center">
+                <p className="text-sm">© 2024 MadaNomu?</p>
+              </div>
             </footer>
           </div>
         </Router>
