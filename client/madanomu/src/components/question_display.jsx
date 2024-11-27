@@ -54,19 +54,19 @@ const QuestionDisplay = ({ id }) => {
   };
 
   return (
-    <div className="p-6 max-w-lg w-full bg-black text-gray-100 rounded-lg shadow-2xl flex flex-col justify-between">
+    <div className="p-6 max-w-lg w-full bg-white text-gray-800 rounded-lg shadow-xl flex flex-col justify-between">
       <div>
         <h2 className="text-3xl font-extrabold text-orange-500 mb-4">
           {questionData.question_name}
         </h2>
-        <p className="text-gray-300 mb-6">{questionData.question}</p>
+        <p className="text-gray-700 mb-6">{questionData.question}</p>
       </div>
 
       <ul className="space-y-3">
         {[1, 2, 3, 4].map((num) => (
           <li
             key={num}
-            className="p-4 bg-gray-800 text-gray-100 rounded-lg hover:bg-orange-500 hover:text-black transition duration-300 cursor-pointer"
+            className="p-4 bg-gray-100 text-gray-800 rounded-lg hover:bg-orange-500 hover:text-white transition duration-300 cursor-pointer"
             onClick={() => handleNextQuestion(num)}
           >
             {num}. {questionData[`choice_${num}`]}
@@ -74,11 +74,11 @@ const QuestionDisplay = ({ id }) => {
         ))}
       </ul>
 
-      <div className="mt-6 text-sm text-gray-400 flex justify-between">
+      <div className="mt-6 text-sm text-gray-500 flex justify-between">
         <span>レベル: {questionData.level}</span>
         <span>ID: {questionData.id}</span>
       </div>
-      <div className="mt-2 text-xs text-gray-500 text-right">
+      <div className="mt-2 text-xs text-gray-400 text-right">
         作成日時: {new Date(questionData.created_at).toLocaleString()}
       </div>
     </div>
@@ -88,7 +88,7 @@ const QuestionDisplay = ({ id }) => {
 const QuestionPage = () => {
   const { id } = useParams();
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black text-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-800">
       <QuestionDisplay id={parseInt(id, 10)} />
     </div>
   );
