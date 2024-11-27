@@ -1,12 +1,11 @@
 import React from "react";
-import { useCorrect } from "./correct"; // Context を利用
+import { useCorrect } from "./correct";
 import { useUserContext } from "./usercontext";
 
 const Results = () => {
-  const { correct } = useCorrect(); // 正解数を取得
-  const { userId } = useUserContext(); // IDを取得
+  const { correct } = useCorrect();
+  const { userId } = useUserContext();
 
-  // メッセージを正解数に応じて動的に変更
   const getMessage = () => {
     return "酔っ払い度を測定しました！みんなに共有しよう！";
   };
@@ -22,31 +21,33 @@ const Results = () => {
       });
 
       if (response.ok) {
-        alert("Score submitted successfully!");
+        alert("スコアの送信に成功しました！");
       } else {
-        alert("Failed to submit the score.");
+        alert("スコアの送信に失敗しました。");
       }
     } catch (error) {
       console.error("Error submitting score:", error);
-      alert("An error occurred while submitting the score.");
+      alert("スコア送信中にエラーが発生しました。");
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-6 max-w-lg w-full bg-white rounded-lg shadow-md text-center">
-        <h1 className="text-2xl font-bold mb-4">結果発表！</h1>
-        <p className="text-lg text-gray-700 mb-4">あなたの正解数は: {correct}/10 です</p>
-        <p className="text-md text-gray-600 italic">{getMessage()}</p>
-        <div className="mt-6 space-x-4">
+    <div className="flex items-center justify-center min-h-screen bg-black text-gray-100">
+      <div className="p-8 max-w-lg w-full bg-gray-900 text-gray-100 rounded-lg shadow-2xl text-center">
+        <h1 className="text-3xl font-extrabold text-orange-500 mb-6">結果発表！</h1>
+        <p className="text-xl font-semibold mb-4">
+          あなたの正解数は: <span className="text-orange-500">{correct}/10</span> です
+        </p>
+        <p className="text-md text-gray-400 italic mb-6">{getMessage()}</p>
+        <div className="mt-8 flex justify-center space-x-4">
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-6 py-3 bg-orange-500 text-black font-bold rounded-lg hover:bg-orange-600 transition duration-300"
             onClick={() => (window.location.href = "/")}
           >
             ホームに戻る
           </button>
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="px-6 py-3 bg-green-500 text-black font-bold rounded-lg hover:bg-green-600 transition duration-300"
             onClick={postCorrectScore}
           >
             Lineグループに通知する

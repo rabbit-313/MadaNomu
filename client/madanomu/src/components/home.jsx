@@ -30,16 +30,16 @@ const App = () => {
       if (response.ok) {
         const data = await response.json();
         setUserId(data.id);
-        console.log(data.id)
+        console.log(data.id);
         setUserName("");
-        alert("Success to submit the name.");
+        alert("名前の送信に成功しました！");
         navigate('/question_display/1');
       } else {
-        alert("Failed to submit the name.");
+        alert("名前の送信に失敗しました。");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while submitting the name.");
+      alert("名前の送信中にエラーが発生しました。");
     }
   };
 
@@ -48,26 +48,25 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-black text-gray-100">
       <button
         type="button"
         onClick={handleNavigateAddQuestion}
-        className="absolute top-20 right-4 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-200"
+        className="absolute top-20 right-4 bg-orange-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-200"
       >
-        Go to Question Page
+        質問ページへ
       </button>
       <div className="text-center mb-6">
-        <h1 className="text-4xl font-extrabold text-blue-600 mb-2">数学の問題を解いてお酒の失敗を防ごう！</h1>
-        {/* <p className="text-lg text-gray-700">
-          数学の問題を解いてお酒の失敗を防ごう！
-        </p> */}
+        <h1 className="text-4xl font-extrabold text-orange-500 mb-2">
+          数学の問題を解いてお酒の失敗をなくそう！
+        </h1>
       </div>
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full"
+        className="bg-gray-900 p-6 rounded-lg shadow-xl max-w-sm w-full"
       >
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="name" className="block text-gray-100 font-medium mb-2">
             名前を入力してね:
           </label>
           <input
@@ -75,16 +74,16 @@ const App = () => {
             id="name"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 border border-gray-700 bg-black text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="なまえ"
           />
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 mb-4 rounded-lg hover:bg-blue-600 transition duration-200"
+          className="w-full bg-orange-500 text-black font-bold py-2 rounded-lg hover:bg-orange-600 transition duration-200"
         >
-          Start !
+          スタート！
         </button>
       </form>
     </div>
